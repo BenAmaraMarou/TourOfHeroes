@@ -1,0 +1,43 @@
+{
+  "name": "tourofmusic",
+  "version": "1.0.0",
+  "description": "Tour Of Music: angular 2 basics",
+  "main": "index.html",
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenAmaraMarou/TourOfMusic.git"
+  },
+  "keywords": [
+    "Angular"
+  ],
+  "dependencies": {
+    "@angular/common": "~2.3.0",
+    "@angular/compiler": "~2.3.0",
+    "@angular/core": "~2.3.0",
+    "@angular/forms": "~2.3.0",
+    "@angular/http": "~2.3.0",
+    "@angular/platform-browser": "~2.3.0",
+    "@angular/platform-browser-dynamic": "~2.3.0",
+    "@angular/router": "~3.3.0",
+    
+    "systemjs": "0.19.40",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.0-rc.4",
+    "zone.js": "^0.7.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.2.2",
+    "typescript": "~2.1.4",
+    "@types/node": "^6.0.46"
+  },
+  "author": "MBA",
+  "license": "ISC"
+}

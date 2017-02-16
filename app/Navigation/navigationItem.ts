@@ -1,6 +1,5 @@
 export class NavigationItem
 {
-    label: string;
-    url: string;
-    isCurrent: boolean;
+    constructor(public label: string, public url: string, public isCurrent: boolean) {        
+    }
 }

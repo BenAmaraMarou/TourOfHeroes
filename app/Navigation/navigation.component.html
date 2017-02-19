@@ -1,8 +1,6 @@
 <nav>
         <ul>
-                <navigation-item 
-                        *ngFor="let navigationItem of navigationItems" 
-                        >
-                </navigation-item>
+                <li><a [routerLink]="dashboard">Dashboard</a></li>
+                <li><a [routerLink]="musicians">Musicians</a></li>
         </ul>
 </nav>

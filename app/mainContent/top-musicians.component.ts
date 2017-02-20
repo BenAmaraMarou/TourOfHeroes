@@ -1,21 +1,24 @@
-import { Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Musician } from './musician';
+import { MusicianService } from './musicianService'
 
 @Component({
     moduleId: module.id,
     selector: 'top-musicians',
     templateUrl: 'top-musicians.component.html'
 })
-export class TopMusiciansComponent {
+export class TopMusiciansComponent implements OnInit {
     title: string;
+    top: number;
     topMusicians: Array<Musician>;
 
-    constructor() {
+    constructor(private musicianService : MusicianService) {
         this.title = "Top Musicians";
-        this.topMusicians = this.getTopMusicians(3);
+        this.top = 3;
     }
 
-    getTopMusicians(top : number): Array<Musician>{
-        return [new Musician(1, "Mozart"), new Musician(2, "Beethoven"), new Musician(3, "Shrubert") ];
+
+    ngOnInit(): void{
+        this.topMusicians = this.musicianService.getTopMusicians(top);
     }
 }

@@ -17,8 +17,7 @@ export class TopMusiciansComponent implements OnInit {
         this.top = 3;
     }
 
-
-    ngOnInit(): void{
-        this.topMusicians = this.musicianService.getTopMusicians(top);
+    ngOnInit(): void {
+        this.topMusicians = this.musicianService.getTopMusicians(this.top).map(m=>m);
     }
 }

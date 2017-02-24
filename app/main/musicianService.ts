@@ -1,5 +1,8 @@
+import { Injectable } from '@angular/core';
+
 import { Musician } from './musician';
 
+@Injectable()
 export class MusicianService
 {
     getMusicians(): Array<Musician>{

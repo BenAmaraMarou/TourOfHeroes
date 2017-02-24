@@ -1,7 +1,8 @@
 import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from "@angular/router";
-import { DashboardComponent }   from "./mainContent/dashboard.component";
-import { MusiciansComponent }   from "./mainContent/musicians.component";
+import { Routes, RouterModule } from "@angular/router";
+
+import { DashboardComponent }   from "./main/dashboard.component";
+import { MusiciansComponent }   from "./main/musicians.component";
 import { APP_BASE_HREF }        from '@angular/common';
 
 const routes : Routes = [

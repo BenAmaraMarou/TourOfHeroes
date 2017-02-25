@@ -1,14 +1,16 @@
 import { NgModule }             from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
-
-import { DashboardComponent }   from "./main/dashboard.component";
-import { MusiciansComponent }   from "./main/musicians.component";
 import { APP_BASE_HREF }        from '@angular/common';
+
+import { DashboardComponent }       from "./main/dashboard.component";
+import { SearchMusicianComponent }  from "./main/search-musician.component";
+import { MyMusiciansComponent }     from "./main/mymusicians.component";
 
 const routes : Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'musicians', component: MusiciansComponent }
+    { path: 'search/:name', component: SearchMusicianComponent },
+    { path: 'mymusicians', component: MyMusiciansComponent }
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],
@@ -17,5 +19,5 @@ const routes : Routes = [
         { provide: APP_BASE_HREF, useValue: '/' }
     ]
 })
-export class AppRoutingModule{
+export class AppRoutingModule {
 }

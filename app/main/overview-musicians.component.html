@@ -1,0 +1,16 @@
+<p>
+    <input type="text" 
+        #newname
+        (keydown.enter)="search(newname.value)">
+        <button (click)="search(newname.value)">Search</button>
+</p>
+<div *ngIf="allMusicians">
+    <div *ngIf="!allMusicians.length">
+        No musicians were found.
+    </div>
+    <div *ngIf="allMusicians.length">
+        <div *ngFor="let musician of allMusicians">
+            {{ musician.id }} - {{ musician.name }}
+        </div>
+    </div>
+</div>

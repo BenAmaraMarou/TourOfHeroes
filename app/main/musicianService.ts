@@ -1,23 +1,37 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import { Musician } from './musician';
 
 @Injectable()
 export class MusicianService
 {
-    getMusicians(): Array<Musician>{
-        return [
-            new Musician(1, "Mozart"), 
-            new Musician(2, "Beethoven"), 
-            new Musician(3, "Shrubert"), 
-            new Musician(4, "Bach"), 
-            new Musician(5, "Chopin") ];
-    } 
+    allMusicians: Array<Musician>;
 
-    getTopMusicians(top : number): Array<Musician>{
-        return [
-            new Musician(1, "Mozart"), 
-            new Musician(2, "Beethoven"), 
-            new Musician(3, "Shrubert") ];
-    }    
+    constructor() {
+        this.allMusicians = [
+            new Musician(1, "Mozart", 10), 
+            new Musician(2, "Beethoven", 9), 
+            new Musician(3, "Tchaikovsky", 8),
+            new Musician(4, "Chopin", 7),            
+            new Musician(5, "Shrubert", 6), 
+            new Musician(6, "Bach", 5), 
+            new Musician(7, "Liszt", 4)];
+    }
+
+    getMusicians(): Observable<Musician>{
+        return Observable.from(this.allMusicians);
+    }
+
+    getTopMusicians(top : number): Observable<Musician>{
+        return Observable
+                .from(this.allMusicians.sort(s=>s.rating))
+                .filter(m => m.rating <= top);
+    }
+
+    searchMusicians(name : string): Observable<Musician>{
+        return Observable
+                .from(this.allMusicians)
+                .filter(m => m.name == name);
+    }
 }

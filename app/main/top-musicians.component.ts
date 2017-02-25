@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Musician } from './musician';
 import { MusicianService } from './musicianService'
 
@@ -17,7 +18,16 @@ export class TopMusiciansComponent implements OnInit {
         this.top = 3;
     }
 
-    ngOnInit(): void {
-        this.topMusicians = this.musicianService.getTopMusicians(this.top).map(m=>m);
+    ngOnInit() {
+        this.musicianService
+            .getTopMusicians(this.top)
+            .subscribe((result : any) => this.renderTopMusicians(result));
+    }
+
+    renderTopMusicians(result: any) : void{
+        this.topMusicians = null;
+        if(result){
+            this.topMusicians = result;
+        }
     }
 }

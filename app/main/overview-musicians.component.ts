@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
 import { Musician } from './musician';
 import { MusicianService } from './musicianService'
@@ -26,11 +26,11 @@ export class OverviewMusiciansComponent extends OnInit {
     }
 
     searchMusicians() : void {
-        Observable.from(
-            this.musicianService
-            .getMusicians()
-            .map(response => response))
-            .subscribe((result : any) => this.renderMusicians(result));
+        // Observable.from(
+        //     this.musicianService
+        //     .getMusicians()
+        //     .map(response => response))
+        //     .subscribe((result : any) => this.renderMusicians(result));
     }
     
     renderMusicians(result: any) : void {

@@ -19,19 +19,19 @@ export class MusicianService
             new Musician(7, "Liszt", 4)];
     }
 
-    getMusicians(): Observable<Musician>{
-        return Observable.from(this.allMusicians);
+    // getMusicians(): Observable<Musician>{
+    //     return Observable.from(this.allMusicians);
+    // }
+
+    getTopMusicians(top : number): Observable<Musician[]>{
+        var r= Observable
+                .of(this.allMusicians.sort(s=>s.rating).filter(m => m.rating > 7));
+            return r;
     }
 
-    getTopMusicians(top : number): Observable<Musician>{
-        return Observable
-                .from(this.allMusicians.sort(s=>s.rating))
-                .filter(m => m.rating <= top);
-    }
-
-    searchMusicians(name : string): Observable<Musician>{
-        return Observable
-                .from(this.allMusicians)
-                .filter(m => m.name == name);
-    }
+    // searchMusicians(name : string): Observable<Musician>{
+    //     return Observable
+    //             .from(this.allMusicians)
+    //             .filter(m => m.name == name);
+    // }
 }

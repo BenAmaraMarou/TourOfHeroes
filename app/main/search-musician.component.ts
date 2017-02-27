@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 
 import { Musician } from './musician';
 import { MusicianService } from './musicianService'
@@ -24,10 +24,10 @@ export class SearchMusicianComponent extends OnInit {
     }
     
     ngOnInit(){
-        Observable.fromEvent(this.searchInput.nativeElement, 'keyup')
-            .map((e: any) => e.target.value)
-            .debounceTime(250)
-            .map((name: string) => this.submit(name));
+        // Observable.fromEvent(this.searchInput.nativeElement, 'keyup')
+            // .map((e: any) => e.target.value)
+            // .debounceTime(250)
+            // .map((name: string) => this.submit(name));
     }
 
     submit(name : string) : void {
@@ -36,9 +36,9 @@ export class SearchMusicianComponent extends OnInit {
     }
 
     search() : void {
-        this.musicianService
-            .searchMusicians(name)
-            .subscribe((result : any) => this.renderMusicians(result));
+        // this.musicianService
+        //     .searchMusicians(name)
+        //     .subscribe((result : any) => this.renderMusicians(result));
     }
     
     renderMusicians(result: any) : void {

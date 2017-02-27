@@ -19,12 +19,17 @@ export class TopMusiciansComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log('onInit');
         this.musicianService
             .getTopMusicians(this.top)
-            .subscribe((result : any) => this.renderTopMusicians(result));
+            .subscribe((result : any) => {
+                console.log('inside', result);
+
+                this.renderTopMusicians(result)});
     }
 
     renderTopMusicians(result: any) : void{
+        console.log('renderTopMusicians' + result );
         this.topMusicians = null;
         if(result){
             this.topMusicians = result;

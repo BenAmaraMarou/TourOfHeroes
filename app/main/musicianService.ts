@@ -16,17 +16,16 @@ export class MusicianService
             new Musician(4, "Chopin", 7),            
             new Musician(5, "Shrubert", 6), 
             new Musician(6, "Bach", 5), 
-            new Musician(7, "Liszt", 4)];
+            new Musician(7, "Liszt", 4),
+            new Musician(6, "Haydn", 3)];
     }
 
-    // getMusicians(): Observable<Musician>{
-    //     return Observable.from(this.allMusicians);
-    // }
+    getMusicians(): Observable<Musician>{
+        return Observable.from(this.allMusicians);
+    }
 
     getTopMusicians(top : number): Observable<Musician[]>{
-        var r= Observable
-                .of(this.allMusicians.sort(s=>s.rating).filter(m => m.rating > 7));
-            return r;
+        return Observable.of(this.allMusicians.sort(s=>s.rating).reverse().slice(0, top));
     }
 
     // searchMusicians(name : string): Observable<Musician>{

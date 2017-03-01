@@ -1,2 +1,2 @@
 <div>{{title}}</div>
-<a *ngFor = "let musician of topMusicians">{{musician.name}}</a>
+<a *ngFor = "let musician of topMusicians; #i = index+1">{{i}}{{musician.name}} {{musician.rating}}</a>

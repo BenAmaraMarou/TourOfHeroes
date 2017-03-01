@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Musician } from './musician';
 import { MusicianService } from './musicianService'
@@ -11,7 +12,7 @@ import { MusicianService } from './musicianService'
 export class TopMusiciansComponent implements OnInit {
     title: string;
     top: number;
-    topMusicians: Array<Musician>;
+    topMusicians: Observable<Musician[]>;
 
     constructor(private musicianService : MusicianService) {
         this.title = "Top Musicians";
@@ -19,17 +20,13 @@ export class TopMusiciansComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('onInit');
         this.musicianService
             .getTopMusicians(this.top)
             .subscribe((result : any) => {
-                console.log('inside', result);
-
                 this.renderTopMusicians(result)});
     }
 
     renderTopMusicians(result: any) : void{
-        console.log('renderTopMusicians' + result );
         this.topMusicians = null;
         if(result){
             this.topMusicians = result;

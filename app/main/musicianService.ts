@@ -20,8 +20,8 @@ export class MusicianService
             new Musician(6, "Haydn", 3)];
     }
 
-    getMusicians(): Observable<Musician>{
-        return Observable.from(this.allMusicians);
+    getMusicians(): Observable<Musician[]>{
+        return Observable.of(this.allMusicians);
     }
 
     getTopMusicians(top : number): Observable<Musician[]>{

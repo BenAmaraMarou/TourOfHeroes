@@ -18,7 +18,7 @@ export class OverviewMusiciansComponent extends OnInit {
     }
 
     ngOnInit(){
-        //this.getAllMusicians();
+        this.getAllMusicians();
     }
 
     search(name : string) : void {
